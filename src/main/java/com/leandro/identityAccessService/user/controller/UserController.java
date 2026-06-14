@@ -72,9 +72,4 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userDTO);
     }
 
-    //TODO: Considerar se deve ser feita uma rota apenas para atualizar a senha
-    //TODO: Criar rota de login.
-    //TODO: Testar a autenticação
-    //cadadastrar as novas permições na role do user (admin)
-
 }
