@@ -1,0 +1,48 @@
+spring:
+    application:
+        name: identity-access-service
+    profiles:
+       active: local
+    jackson:
+        time-zone: America/Sao_Paulo
+    data:
+        mongodb:
+            auto-index-creation: true
+
+management:
+    endpoint:
+        health:
+            show-details: always
+        web:
+            exposure:
+                include: health, loggers
+
+server:
+    port: 8080
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+        min-response-size: 1024
+    forward-headers-strategy: framework
+    tomcat:
+        max-swallow-size: 500MB
+
+security:
+    basic:
+        enabled: false
+
+springdoc:
+    api-docs:
+        path: /v3/api-docs
+    swagger-ui:
+        path: /swagger-ui.html
+        operations-sorter: method
+        tags-sorter: alpha
+        display-request-duration: true
+
+logging:
+    pattern:
+        console: "%d %-5level %logger : %msg%n"
+        file: "%d %-5level [%thread] %logger : %msg%n"
+    level:
+        org.springframework.web: DEBUG
