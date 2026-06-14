@@ -96,42 +96,11 @@ Fluxo resumido:
 - `PATCH /api/v1/permission/{id}`
 - `DELETE /api/v1/permission/{id}`
 
-## Como executar localmente
 
-> Observacao: as propriedades locais estao em `src/main/resources/config/application-local.yml`.
-
-### 1) Subir MongoDB (exemplo com Docker)
-
-```bash
-docker run -d --name identity-mongo \
-  -p 27017:27017 \
-  -e MONGO_INITDB_ROOT_USERNAME=admin \
-  -e MONGO_INITDB_ROOT_PASSWORD=admin \
-  mongo:7
-```
-
-### 2) Rodar a aplicacao
-
-```bash
-cd /home/user/Documentos/workSpace/identityAccessService
-./mvnw spring-boot:run
-```
-
-### 3) Acessar documentacao
+# Acessar documentacao
 
 - Swagger UI: `http://localhost:8080/swagger-ui.html`
 - OpenAPI JSON: `http://localhost:8080/v3/api-docs`
-
-## Testes
-
-Para executar os testes:
-
-```bash
-cd /home/user/Documentos/workSpace/identityAccessService
-./mvnw test
-```
-
-Se houver erro de versao do Java no ambiente local, alinhe o JDK com o valor definido em `pom.xml`.
 
 ## Exemplo rapido de uso
 
@@ -152,32 +121,3 @@ curl -X POST http://localhost:8080/auth/login \
 curl -X GET http://localhost:8080/api/v1/user \
   -H 'Authorization: Bearer SEU_TOKEN_AQUI'
 ```
-
-## Diferenciais para portfolio
-
-- Implementacao de seguranca com JWT + Spring Security
-- Controle de acesso corporativo por permissao
-- Modelagem RBAC escalavel
-- Estrutura de codigo orientada a manutencao
-- Boas praticas de API REST e tratamento de excecoes
-
-## Melhorias futuras (roadmap)
-
-- Cobertura de testes unitarios e integracao para fluxos de seguranca
-- Refresh token e estrategia de revogacao
-- Observabilidade (logs estruturados, metricas, tracing)
-- Pipeline CI/CD com validacoes de qualidade e seguranca
-- Gerenciamento de secrets por ambiente
-
-## Autor
-
-Leandro
-
----
-
-Se quiser, eu tambem posso criar uma versao **README portfolio premium** com:
-1. badges (build, cobertura, stack)
-2. diagramas (arquitetura e fluxo JWT)
-3. sessao de desafios tecnicos e decisoes arquiteturais
-4. secao "lessons learned" para destacar senioridade
-
